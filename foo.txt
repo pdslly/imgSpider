@@ -1,0 +1,1986 @@
+<!DOCTYPE html>           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '//imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "10601256431817150854";
+            data.sid = '966dd35d6f4b8706212033894c299a17818a007f';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '-1';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            data.group = "1";
+            if ('0' - 0) {
+                data.ishttps = '0';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '//imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "10601256431817150854";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "c3437dbc7c1255d3a21d444d86ebf2e9234c22bd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv='Content-Type' content="text/html; charset=utf-8">
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<noscript>
+<meta http-equiv="refresh" content="0;url=/i?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E5%A3%81%E7%BA%B8&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+ <title>
+壁纸_百度图片搜索</title>  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"http:\/\/nssug.baidu.com":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","http:\/\/img.baidu.com":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","http:\/\/himg.bdimg.com":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","http:\/\/apps.bdimg.com":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","http:\/\/f3.baidu.com":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","http:\/\/bzclk.baidu.com":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","http:\/\/img0.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img1.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img2.imgtn.bdimg.com":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img3.imgtn.bdimg.com":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","http:\/\/img4.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img5.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/bdimg.share.baidu.com":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","http:\/\/dispatcher.video.qiyi.com":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","http:\/\/passport.bdimg.com":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="//img0.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间, 也用于vs埋点
+    window.pageStartTime = (new Date()).getTime();
+   // window.scrollTo(0, 0);
+</script>
+
+<script>
+    // 时效性热点
+        </script>
+ <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_1000985.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/pkg/result_4327615.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_9c35bad.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_5709328.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_5a57aa1.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_cea6b92.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_cf8a646.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_5b1da63.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/pagelets/base/avfilter/avfilter_94165d2.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/common/widget/loginbar/loginbar_e8a6507.css"/></head>  <script> alog('speed.set', 'ht', +new Date); </script>  <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"searchresult:widget/ui/app/noResultPage.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_ee2374d.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/statistic/statistic.js"]},"common:widget/shitu/static/animate.js":{"url":"//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/shitu/run.js":{"url":"//img0.bdstatic.com/static/common/widget/shitu/run_91e31a5.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/shitu/static/animate.js"]},"common:widget/ui/historyRecord/historyRecord.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_a3dfc3a.js","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:widget/loginbar/loginbar.js":{"url":"//img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/sourcehttps/sourcehttps.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/sourcehttps/sourcehttps_a8b93d5.js"},"common:widget/ui/fmCheck/fmCheck.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/durationStat/durationStat.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:widget/ui/base/base.js"]}}});</script> 
+<div id="search" class="cg_avatar ">
+<script>
+            (function() {
+                var search = document.getElementById('search');
+                var width = window.innerWidth
+                    || (document.documentElement && document.documentElement.clientWidth)
+                    || (document.body && document.body.clientWidth);
+                if (search && width < 1217) {
+                    search.className = 'narrow ' + search.className;
+                }
+            })();
+        </script>
+<script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['word','http://v.baidu.com/v?ct=301989888&s=25&ie=utf-8',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab">
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">新闻</a>&#12288;<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>&#12288;<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>&#12288;<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>&#12288;<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>&#12288;<b>图片</b>&#12288;<a href="http://v.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>&#12288;<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>&#12288;<a href="http://baike.baidu.com/" onmousedown="setHeadUrl(this)" name="i_baike">百科</a>&#12288;<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+</div>
+<a href="/" class="s_logo">
+<img src="//img0.bdstatic.com/static/searchresult/img/logo-2X_b99594a.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<input name="ctd" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="壁纸" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png" width="20" height="20"> <img class="st_camera_on" src="//img2.bdstatic.com/static/common/widget/shitu/images/camera_new_on_4e3e250.png" width="20" height="20"> <div class="st_tips" id="stTipsBox">上传图片，搜索相关信息</div> <div class="st_tips_arrow_in" id="stTipArrowIn"></div> <div class="st_tips_arrow_out" id="stTipArrowOut"></div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img2.bdstatic.com/static/common/widget/shitu/images/mark_b68ff2e.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" action="/pictureup/uploadshitu" method="post" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="image" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" action="/pictureup/uploadshitu" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> </div>  </div>
+<div id="topInfoBar">
+<div id="topRS">
+<em class="pull-rs-title">相关搜索：</em><a class="pull-rs" title="查看 洗车写真壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%B4%97%E8%BD%A6%E5%86%99%E7%9C%9F%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">洗车写真壁纸</a><a class="pull-rs" title="查看 美国黑色美女壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%BE%8E%E5%9B%BD%E9%BB%91%E8%89%B2%E7%BE%8E%E5%A5%B3%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">美国黑色美女壁纸</a><a class="pull-rs" title="查看 tara美女壁纸图片高清"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=tara%E7%BE%8E%E5%A5%B3%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87%E9%AB%98%E6%B8%85&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">tara美女壁纸图片高清</a><a class="pull-rs" title="查看 美女丝袜动态壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E7%BE%8E%E5%A5%B3%E4%B8%9D%E8%A2%9C%E5%8A%A8%E6%80%81%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">美女丝袜动态壁纸</a><a class="pull-rs" title="查看 李玹雨壁纸手机壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%9D%8E%E7%8E%B9%E9%9B%A8%E5%A3%81%E7%BA%B8%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">李玹雨壁纸手机壁纸</a><a class="pull-rs" title="查看 锅子 壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E9%94%85%E5%AD%90+%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">锅子 壁纸</a><a class="pull-rs" title="查看 李平君 壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E6%9D%8E%E5%B9%B3%E5%90%9B+%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">李平君 壁纸</a><a class="pull-rs" title="查看 贝壳粉背景墙效果图"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E8%B4%9D%E5%A3%B3%E7%B2%89%E8%83%8C%E6%99%AF%E5%A2%99%E6%95%88%E6%9E%9C%E5%9B%BE&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">贝壳粉背景墙效果图</a><a class="pull-rs" title="查看 宋仲基壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%AE%8B%E4%BB%B2%E5%9F%BA%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">宋仲基壁纸</a><a class="pull-rs" title="查看 韩系小清新风格壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E9%9F%A9%E7%B3%BB%E5%B0%8F%E6%B8%85%E6%96%B0%E9%A3%8E%E6%A0%BC%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">韩系小清新风格壁纸</a><a class="pull-rs" title="查看 雪卡通壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E9%9B%AA%E5%8D%A1%E9%80%9A%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">雪卡通壁纸</a><a class="pull-rs" title="查看 酷图卡通 壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E9%85%B7%E5%9B%BE%E5%8D%A1%E9%80%9A+%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">酷图卡通 壁纸</a><a class="pull-rs" title="查看 假币 壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%81%87%E5%B8%81+%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">假币 壁纸</a><a class="pull-rs" title="查看 壁纸 风格"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%A3%81%E7%BA%B8+%E9%A3%8E%E6%A0%BC&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">壁纸 风格</a><a class="pull-rs" title="查看 吃货卡通壁纸"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%90%83%E8%B4%A7%E5%8D%A1%E9%80%9A%E5%A3%81%E7%BA%B8&hs=0&oriquery=%25E5%25A3%2581%25E7%25BA%25B8&ofr=%25E5%25A3%2581%25E7%25BA%25B8">吃货卡通壁纸</a></div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <img class="blessing-img" src="${icon.normal}" alt="" />
+        <span class="blessing-content">
+            ${title}
+        </span>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+</div>
+ 
+
+<script>
+    window.vsid = '74c76004d8726eb7d5e4f6eb3a9630653e3b1447';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="cg_avatar">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+</div>
+<div id="specialRecommend"></div>
+<div id="lefter"></div>
+<div id="avfilter"></div>
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">壁纸</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E5%A3%81%E7%BA%B8&ie=utf-8&oe=utf-8&lm=-1&st=-1&z=&se=0&fr=ala&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约1,290,000张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在���面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script> 
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text">返回顶部</div></a>
+<a href="javascript:;" id="report_link" data-title="反馈图片"><div class="btn-inner-text">反馈</div></a>
+<div id='userInfo'>
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+ 
+<script>
+    (function () {
+        var pos = '';
+        if (pos == 1) {
+            pos = '-title';
+        } else if (pos == 3) {
+            pos = '-more';
+        } else {
+            pos = '';
+        }
+
+        document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
+
+            var net = 0;
+            var isPreLoaded = 0;
+            var start = speed.get('start');
+
+            if(window.performance){
+                net = window.performance.timing.navigationStart;
+            }
+            net && speed.mark('net', start - net);
+            speed.mark('preloaded', isPreLoaded);
+            speed.mark('domc');
+            // 针对chrome细分数据
+            if (window.performance && window.performance.timing) {
+                var timing = window.performance.timing;
+                // tcp connct时间
+                speed.mark('dnst', timing.domainLookupEnd - timing.domainLookupStart);
+                // dns解析时间
+                speed.mark('cot', timing.connectEnd - timing.connectStart);
+                // 首字节返回时间点
+                speed.mark('rpnt', timing.responseStart);
+                if (net) {
+                    // tc跳板时间
+                    speed.mark('tct', timing.navigationStart - net);
+                    // 网络开始时间点
+                    speed.mark('nets', net);
+                }
+                speed.mark('connectStart', timing.connectStart);
+            }
+        }, false);
+
+        var addWindowEvent = window.addEventListener ?
+            function(type, fn) { window.addEventListener(type, fn, false); } :
+            function(type, fn) { window.attachEvent('on' + type, fn); };
+        addWindowEvent('load', function () {
+            var url = location.href;
+            url = url.replace(/&ctd=([^&]+)/, '');
+            if (url) {
+                window.history && window.history.replaceState && window.history.replaceState(null, "", url + '');
+            }
+
+            speed.mark('load');
+            LazySend();
+        });
+
+        function LazySend() {
+            if (speed.firstScCount >= 5) {
+                speed.mark('frm', '');
+                speed.send();
+            } else {
+                setTimeout(LazySend, 1000);
+            }
+        }
+    })();
+</script>
+<script>
+    (function () {
+        if (window._alaEnter && window._alaEnter !== true) {
+            window._alaEnter('end');
+            var oldOnerror = window.onerror;
+            window.onerror = function (msg, source, lineno, colno) {
+                try {
+                    oldOnerror && oldOnerror.apply(window, arguments);
+                    var str = 'error&source=' + source + '&msg=' + msg + '&ln=' + lineno + '&cn=' + colno;
+                    window._alaEnter(str);
+                } catch (e) {}
+            };
+        }
+    })();
+</script>
+<script>
+    </script>
+                    <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>   </body><script type="text/javascript"  src="//img0.bdstatic.com/static/common/widget/ui/base/base_175b2c0.js" ></script>
+<script type="text/javascript"  src="//img0.bdstatic.com/static/common/pkg/cores_c065afc.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/searchresult/pkg/result_1fa9fc9.js" ></script>
+<script type="text/javascript">!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = {"UI_YUNYING_11":"0","UI_YUNYING_13":"1","UI_YUNYING_21":"0","UI_YUNYING_31":"2","UI_WISE_RES_SPEED":"0","UI_PC_LOW_QUALITY_FILT":"1","UI_MERGE_ALL_RESULTS":"2","UI_WISE_IMAGE_EE":"0","UI_PC_IMAGE_Q":"0","UI_WISE_BIG_PICTURE":"5","UI_PC_TUIGUANG":"1","PC_WISE_ALL":"0","UI_WISE_HOMEPAGE_FEED":"1","UI_PC_TJAD":"0","UI_PC_JIAZHUANG_FORWARD":"0","WISE_THUMBURL_300":"1","UI_PC_THUMBURL_300":"1","UI_WISE_SET_TAG":"0","FEED_SAMPLE":"0"};
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){// ala进入问题调查
+window._alaEnter && window._alaEnter !== true && window._alaEnter('prerequire');
+require.async(['searchresult:widget/ui/app/app'], function (app) {
+    window._alaEnter && window._alaEnter !== true && window._alaEnter('postrequire');
+    require.async(['searchresult:widget/ui/action/base/base']);
+    app.setPageInfo({
+        // 在后端对query进行抽样的时候，用这个来统计实验组和对照组
+        queryPageType : '0',
+        tag_type: '',
+        tag: '',
+        subtag: '',
+        gsm: '1e',
+        listNum : '3978',
+        dispNum : '1296051',
+        bdIsClustered : '1',
+        fr : 'ala',
+        sme : '',
+        ie : 'utf-8',
+        oe : 'utf-8',
+        fInsertNum : "0",
+        queryWordEnc: '%E5%A3%81%E7%BA%B8',
+        queryWordGBKEnc: '%B1%DA%D6%BD',
+        queryWord : '壁纸',
+        queryUrlWord : '%E5%A3%81%E7%BA%B8',
+        bdFmtDispNum : '1296051',
+        bdSearchTime : '',
+        gbkword:'%B1%DA%D6%BD',
+        resTabs : [],
+        userid:'',
+        useSign:'',
+        userNumID:'', // 这个才是真正的 userid
+        encodeUserNumId:'',
+        spaceUrl:'',
+        hasUserName: ('' == '0'),
+        bdstoken : '',
+        thirdLogo :'0', // 第三方网站登录的logo，为空则不显示
+        se:'',
+        needIE:'1',
+        jit:'',
+        showHot:'',
+        hasResult: '1',
+        aspSID:'931f3a8e8f495186',
+        oriquery: '壁纸',
+        fm: '',
+        hs: '0',
+        adBigPicPos: -1,
+                strategyType: 'avatar_wallpaper',
+                        cg: 'wallpaper',
+                                        fc: {
+                    ic: "0",
+                    lm: "-1",
+                    s:  "0"
+                },
+                tagZero: "壁纸",
+                tagOne: "",
+                tagTwo: "",
+                tag: "全部",
+                tagTwoCount: "",
+                tagFatherSelected: "全部",
+                tagSelected: "全部",
+                tagTwoPnList: [
+                                    ],
+                tags:[
+                                            {
+                            name: "壁纸",
+                            show: "全部",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                                                ]
+                        }
+                        ,                                            {
+                            name: "壁纸 不同风格",
+                            show: "不同风格",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 不同风格",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 美女",
+                                            show: "美女",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 唯美",
+                                            show: "唯美",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 可爱",
+                                            show: "可爱",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 小清新",
+                                            show: "小清新",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 插画",
+                                            show: "插画",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 水墨画",
+                                            show: "水墨画",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 个性",
+                                            show: "个性",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 简约",
+                                            show: "简约",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 护眼",
+                                            show: "护眼",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 节日",
+                                            show: "节日",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 日历",
+                                            show: "日历",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 非主流",
+                                            show: "非主流",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 中国风",
+                                            show: "中国风",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 搞笑",
+                                            show: "搞笑",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 帅哥",
+                                            show: "帅哥",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 情侣",
+                                            show: "情侣",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 另类",
+                                            show: "另类",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 萝莉",
+                                            show: "萝莉",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 炫酷",
+                                            show: "炫酷",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 性感",
+                                            show: "性感",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 3D",
+                                            show: "3D",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 科幻",
+                                            show: "科幻",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 时尚",
+                                            show: "时尚",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 星座",
+                                            show: "星座",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 涂鸦",
+                                            show: "涂鸦",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 古典",
+                                            show: "古典",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 淡雅",
+                                            show: "淡雅",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 创意设计",
+                                            show: "创意设计",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 lomo风",
+                                            show: "lomo风",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 苹果壁纸",
+                                            show: "苹果壁纸",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 家居",
+                                            show: "家居",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 美食",
+                                            show: "美食",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 微软壁纸",
+                                            show: "微软壁纸",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 三维立体",
+                                            show: "三维立体",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 高清壁纸",
+                                            show: "高清壁纸",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 萌宠",
+                                            show: "萌宠",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 卡通",
+                                            show: "卡通",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 体育",
+                                            show: "体育",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 国家地理",
+                                            show: "国家地理",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 手绘素描",
+                                            show: "手绘素描",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 旅游风光",
+                                            show: "旅游风光",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 治愈系",
+                                            show: "治愈系",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 不同风格 正能量",
+                                            show: "正能量",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 卡通动漫",
+                            show: "卡通动漫",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 卡通动漫",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 海贼王",
+                                            show: "海贼王",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 秦时明月",
+                                            show: "秦时明月",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 火影忍者",
+                                            show: "火影忍者",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 死神",
+                                            show: "死神",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 兔斯基",
+                                            show: "兔斯基",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 阿狸",
+                                            show: "阿狸",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 初音未来",
+                                            show: "初音未来",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 黑崎一护",
+                                            show: "黑崎一护",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 进击的巨人",
+                                            show: "进击的巨人",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 哆啦a梦",
+                                            show: "哆啦a梦",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 神奇宝贝",
+                                            show: "神奇宝贝",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 银魂",
+                                            show: "银魂",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 犬夜叉",
+                                            show: "犬夜叉",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 海绵宝宝",
+                                            show: "海绵宝宝",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 悠嘻猴",
+                                            show: "悠嘻猴",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 黑执事",
+                                            show: "黑执事",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 名侦探柯南",
+                                            show: "名侦探柯南",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 流氓兔",
+                                            show: "流氓兔",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 网球王子",
+                                            show: "网球王子",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 哈咪猫",
+                                            show: "哈咪猫",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 摩丝摩丝",
+                                            show: "摩丝摩丝",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 游戏动漫",
+                                            show: "游戏动漫",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 动漫美女",
+                                            show: "动漫美女",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 卡通动漫 守护甜心",
+                                            show: "守护甜心",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 动物",
+                            show: "动物",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 动物",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 动物 狗狗",
+                                            show: "狗狗",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 动物 猫咪",
+                                            show: "猫咪",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 动物 兔子",
+                                            show: "兔子",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 动物 熊猫",
+                                            show: "熊猫",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 动物 老虎",
+                                            show: "老虎",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 影视",
+                            show: "影视",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 影视",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影��� 变形金刚",
+                                            show: "变形金刚",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 钢铁侠",
+                                            show: "钢铁侠",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 吸血鬼日记",
+                                            show: "吸血鬼日记",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 蝙蝠侠",
+                                            show: "蝙蝠侠",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 暮光之城",
+                                            show: "暮光之城",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 日韩影视",
+                                            show: "日韩影视",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 美国队长2",
+                                            show: "美国队长2",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 港台影视",
+                                            show: "港台影视",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 大陆影视",
+                                            show: "大陆影视",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 影视 欧美影视",
+                                            show: "欧美影视",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 游戏",
+                            show: "游戏",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 游戏",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 英雄联盟",
+                                            show: "英雄联盟",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 魔兽世界",
+                                            show: "魔兽世界",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 梦幻西游",
+                                            show: "梦幻西游",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 使命召唤",
+                                            show: "使命召唤",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 生化危机",
+                                            show: "生化危机",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 仙剑奇侠传",
+                                            show: "仙剑奇侠传",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 星际争霸",
+                                            show: "星际争霸",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 古剑奇谭",
+                                            show: "古剑奇谭",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 暗黑破坏神",
+                                            show: "暗黑破坏神",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 鬼泣",
+                                            show: "鬼泣",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 永恒之塔",
+                                            show: "永恒之塔",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 大唐无双",
+                                            show: "大唐无双",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 古墓丽影",
+                                            show: "古墓丽影",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 DNF地下城与勇士",
+                                            show: "DNF地下城与勇士",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 实况足球",
+                                            show: "实况足球",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 穿越火线",
+                                            show: "穿越火线",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 游戏 网游",
+                                            show: "网游",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 植物花卉",
+                            show: "植物花卉",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 植物花卉",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 向日葵",
+                                            show: "向日葵",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 蒲公英",
+                                            show: "蒲公英",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 玫瑰",
+                                            show: "玫瑰",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 郁金香",
+                                            show: "郁金香",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 枫叶",
+                                            show: "枫叶",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 月季",
+                                            show: "月季",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 植物花卉 花草",
+                                            show: "花草",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 风景",
+                            show: "风景",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 风景",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 雪景",
+                                            show: "雪景",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 宇宙",
+                                            show: "宇宙",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 山水",
+                                            show: "山水",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 夜景",
+                                            show: "夜景",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁��� 风景 蓝天",
+                                            show: "蓝天",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 秋天",
+                                            show: "秋天",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 田园",
+                                            show: "田园",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 日出",
+                                            show: "日出",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 火焰",
+                                            show: "火焰",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 沙漠",
+                                            show: "沙漠",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 公路",
+                                            show: "公路",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 星空",
+                                            show: "星空",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 海底",
+                                            show: "海底",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 自然",
+                                            show: "自然",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 冰雪",
+                                            show: "冰雪",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 风景 海滩",
+                                            show: "海滩",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 明星",
+                            show: "明星",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 明星",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 科比",
+                                            show: "科比",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 高圆圆",
+                                            show: "高圆圆",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 钟汉良",
+                                            show: "钟汉良",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 李敏镐",
+                                            show: "李敏镐",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 刘亦菲",
+                                            show: "刘亦菲",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 周杰伦",
+                                            show: "周杰伦",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 刘诗诗",
+                                            show: "刘诗诗",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 范冰冰",
+                                            show: "范冰冰",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 艾薇儿",
+                                            show: "艾薇儿",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 bigbang",
+                                            show: "bigbang",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 angelababy",
+                                            show: "angelababy",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 exo",
+                                            show: "exo",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 少女时代",
+                                            show: "少女时代",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 张根硕",
+                                            show: "张根硕",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 艾弗森",
+                                            show: "艾弗森",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 贝克汉姆",
+                                            show: "贝克汉姆",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 安吉丽娜朱莉",
+                                            show: "安吉丽娜朱莉",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 林志玲",
+                                            show: "林志玲",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 蔡依林",
+                                            show: "蔡依林",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 柳岩",
+                                            show: "柳岩",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 梅西",
+                                            show: "梅西",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 维尼夫妇",
+                                            show: "维尼夫妇",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 黄美姬",
+                                            show: "黄美姬",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 赵奕欢",
+                                            show: "赵奕欢",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 滨崎步",
+                                            show: "滨崎步",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 孙俪",
+                                            show: "孙俪",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 韩庚",
+                                            show: "韩庚",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 陈乔恩",
+                                            show: "陈乔恩",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 佟丽娅",
+                                            show: "佟丽娅",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 张韶涵",
+                                            show: "张韶涵",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 林峰",
+                                            show: "林峰",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 苏志燮",
+                                            show: "苏志燮",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 张柏芝",
+                                            show: "张柏芝",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 飞轮海",
+                                            show: "飞轮海",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 吴尊",
+                                            show: "吴尊",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 汪东城",
+                                            show: "汪东城",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 彭于晏",
+                                            show: "彭于晏",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 景甜",
+                                            show: "景甜",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 杨幂",
+                                            show: "杨幂",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 金贤重",
+                                            show: "金贤重",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 明星 东方神起",
+                                            show: "东方神起",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                        ,                                            {
+                            name: "壁纸 名车",
+                            show: "名车",
+                            pic: "",
+                            hassub: 0,
+                            subs: [
+                                                                                                            {
+                                            name: "壁纸 名车",
+                                            show: "全部",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 兰博基尼",
+                                            show: "兰博基尼",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 路虎",
+                                            show: "路虎",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 保时捷",
+                                            show: "保时捷",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 奥迪",
+                                            show: "奥迪",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 法拉利",
+                                            show: "法拉利",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 宝马",
+                                            show: "宝马",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 宾利",
+                                            show: "宾利",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 奔驰",
+                                            show: "奔驰",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 凯迪拉克",
+                                            show: "凯迪拉克",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 大众",
+                                            show: "大众",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 悍马",
+                                            show: "悍马",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 福特",
+                                            show: "福特",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 沃尔沃",
+                                            show: "沃尔沃",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 丰田",
+                                            show: "丰田",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 日产gtr",
+                                            show: "日产gtr",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 道奇",
+                                            show: "道奇",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 迈凯轮",
+                                            show: "迈凯轮",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 概念车",
+                                            show: "概念车",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 劳斯莱斯",
+                                            show: "劳斯莱斯",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 玛莎拉蒂",
+                                            show: "玛莎拉蒂",
+                                            pic: ""
+                                        }
+                                        ,                                                                            {
+                                            name: "壁纸 名车 跑车",
+                                            show: "跑车",
+                                            pic: ""
+                                        }
+                                                                                                                                        ]
+                        }
+                                                            ],
+                            personalized:'0'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 360,        "pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 300,        "maxBaseLineHeight": 320,        "minBaseLineHeight": 280,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_head": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 165    },    "avatar_wallpaper": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 180,        "maxBaseLineHeight": 200,        "minBaseLineHeight": 160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 165    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }});
+    app.setData('imgData', {    "queryEnc":"%E5%A3%81%E7%BA%B8",    "displayNum":1296051,    "bdIsClustered" : "1",    "listNum":3978,    "bdFmtDispNum" : "1296051",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=296063280,3152724352&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=296063280,3152724352&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=296063280,3152724352&fm=23&gp=0.jpg",            "pageNum":0,            "objURL":"http://p1.gexing.com/shaitu/20130413/1254/5168e501a8d8f.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B2jxtg2_z&e3Bv54AzdH3Ffiwtp7AzdH3F8m09ca8_z&e3Bip4s",            "fromURLHost":"www.gexing.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"169937479250",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"个性网-美图-简单爱 接下来",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "296063280,3152724352",            "os" : "2580684912,1774674795",            "simid" : "4259155642,628970794",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3245340147,2832625293&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3245340147,2832625293&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3245340147,2832625293&fm=23&gp=0.jpg",            "pageNum":1,            "objURL":"http://img2.niutuku.com/1312/0831/0831-niutuku.com-28071.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-m9lald-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"173553588560",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选电脑桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3245340147,2832625293",            "os" : "3059722193,3054317164",            "simid" : "4223354182,746701859",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3375298313,1944835706&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3375298313,1944835706&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3375298313,1944835706&fm=23&gp=0.jpg",            "pageNum":2,            "objURL":"http://img2.niutuku.com/desk/1207/1002/ntk122412.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3Fbl0bAzdH3F8dll8d_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"10590505750",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3375298313,1944835706",            "os" : "2932750081,3287129399",            "simid" : "3330763481,4211660270",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=1640469430,4084403347&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=1640469430,4084403347&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=1640469430,4084403347&fm=23&gp=0.jpg",            "pageNum":3,            "objURL":"http://images.forwallpaper.com/files/images/7/73f7/73f79207/225777/tz-wallpaper.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fvg_z&e3Bu56owssrwrj6_z&e3Bv54AzdH3Fowssrwrj6AzdH3Fpz-owssrwrj6-ddc000_z&e3Bip4s",            "fromURLHost":"cn.forwallpaper.com",            "currentIndex":"",            "width":1366,            "height":768,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"199173735860",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"tz <strong>壁纸<\/strong>  壁纸 ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1640469430,4084403347",            "os" : "2871655233,3049473461",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=3789070307,2200055164&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=3789070307,2200055164&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=3789070307,2200055164&fm=23&gp=0.jpg",            "pageNum":4,            "objURL":"http://img2.niutuku.com/desk/1208/1544/ntk-1544-26434.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-nmd8dn-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"154170402210",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3789070307,2200055164",            "os" : "620342078,517321803",            "simid" : "4135160378,661246579",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=3904563104,901081059&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=3904563104,901081059&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=3904563104,901081059&fm=23&gp=0.jpg",            "pageNum":5,            "objURL":"http://img2.niutuku.com/desk/1207/1037/ntk131964.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3Fnl8nAzdH3F8nl9n0_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1680,            "height":1050,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"52406844710",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3904563104,901081059",            "os" : "3145208550,3540403998",            "simid" : "34151515,930140994",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1901715451,1483624715&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1901715451,1483624715&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1901715451,1483624715&fm=23&gp=0.jpg",            "pageNum":6,            "objURL":"http://img2.niutuku.com/desk/1208/2038/ntk-2038-17998.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-cdnbb0-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1200,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"72196505480",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1901715451,1483624715",            "os" : "803540543,679064457",            "simid" : "4125061247,698447190",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2679851752,3059261011&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2679851752,3059261011&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2679851752,3059261011&fm=23&gp=0.jpg",            "pageNum":7,            "objURL":"http://img2.niutuku.com/desk/1208/1551/ntk-1551-32545.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-nm0l80-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1200,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"42557391360",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2679851752,3059261011",            "os" : "598934664,440629119",            "simid" : "4162679796,606149976",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=958335157,3556546481&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=958335157,3556546481&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=958335157,3556546481&fm=23&gp=0.jpg",            "pageNum":8,            "objURL":"http://img2.niutuku.com/desk/130220/37/37-niutuku.com-927.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F8ldblAzdH3Fm8bb89_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"59541185880",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "958335157,3556546481",            "os" : "168747153,1212852676",            "simid" : "3468804029,529870852",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=4256907928,563619019&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=4256907928,563619019&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=4256907928,563619019&fm=23&gp=0.jpg",            "pageNum":9,            "objURL":"http://p1.gexing.com/G1/M00/B0/84/rBABE1HViYLCw_jFAA19J1cxvGU582.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B2jxtg2_z&e3Bv54AzdH3FktzitAzdH3F8b0ldnc_z&e3Bip4s",            "fromURLHost":"www.gexing.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"138929875480",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"个性网-<strong>壁纸<\/strong>-正文_游戏卡通",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4256907928,563619019",            "os" : "3987927193,234483831",            "simid" : "3353452795,194998261",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=4167211179,1197254139&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=4167211179,1197254139&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=4167211179,1197254139&fm=23&gp=0.jpg",            "pageNum":10,            "objURL":"http://img2.niutuku.com/desk/1207/1049/ntk133175.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-89am8d-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1680,            "height":1050,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"204814072320",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"桌酷精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4167211179,1197254139",            "os" : "3096909091,3499128163",            "simid" : "3329606888,349892067",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1745371451,1894784999&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=1745371451,1894784999&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=1745371451,1894784999&fm=23&gp=0.jpg",            "pageNum":11,            "objURL":"http://img2.niutuku.com/desk/1208/1538/ntk-1538-24735.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-nma98c-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1200,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"128006255080",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1745371451,1894784999",            "os" : "734410049,620387740",            "simid" : "3436836511,167896891",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2500781543,473040531&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2500781543,473040531&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2500781543,473040531&fm=23&gp=0.jpg",            "pageNum":12,            "objURL":"http://img2.niutuku.com/desk/1208/1309/ntk-1309-5364.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-nd08ab-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1440,            "height":900,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"70728785490",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2500781543,473040531",            "os" : "197771987,546473853",            "simid" : "3462241529,340566830",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=563755645,2386813689&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=563755645,2386813689&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=563755645,2386813689&fm=23&gp=0.jpg",            "pageNum":13,            "objURL":"http://img2.niutuku.com/desk/1207/1011/ntk123346.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-8nablm-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"79212454970",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"桌酷精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "563755645,2386813689",            "os" : "2976752707,3358657993",            "simid" : "4250351291,672663324",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=489669467,761499731&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=489669467,761499731&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=489669467,761499731&fm=23&gp=0.jpg",            "pageNum":14,            "objURL":"http://img2.niutuku.com/desk/1208/1510/ntk-1510-31825.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-nm0dcb-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"84724239270",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌���<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "489669467,761499731",            "os" : "517868448,355747833",            "simid" : "4208090429,651757954",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3378407863,2721608725&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3378407863,2721608725&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3378407863,2721608725&fm=23&gp=0.jpg",            "pageNum":15,            "objURL":"http://img2.niutuku.com/desk/1207/1057/ntk121901.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3FlaamAzdH3F8dlnma_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"135618663400",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3378407863,2721608725",            "os" : "3069325132,3430391207",            "simid" : "3601747347,618569039",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2242498829,425665577&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2242498829,425665577&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2242498829,425665577&fm=23&gp=0.jpg",            "pageNum":16,            "objURL":"http://img2.niutuku.com/desk/1208/1445/ntk-1445-9697.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-n9mb8d-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"168042963880",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库���选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2242498829,425665577",            "os" : "323748164,603029803",            "simid" : "3602965,679894781",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=4214362019,638079462&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=4214362019,638079462&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=4214362019,638079462&fm=23&gp=0.jpg",            "pageNum":17,            "objURL":"http://img2.niutuku.com/desk/1207/1051/ntk133277.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3Fnb9dAzdH3F89a0dc_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1280,            "height":800,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"38258569580",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4214362019,638079462",            "os" : "3007209423,3418668134",            "simid" : "3484410446,265763589",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1561968451,975441485&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1561968451,975441485&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1561968451,975441485&fm=23&gp=0.jpg",            "pageNum":18,            "objURL":"http://img2.niutuku.com/desk/1208/1440/ntk-1440-10966.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-nnd08m-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1680,            "height":1050,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"70156954780",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1561968451,975441485",            "os" : "584243984,409146066",            "simid" : "4230538189,539680020",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1366355710,256457684&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1366355710,256457684&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1366355710,256457684&fm=23&gp=0.jpg",            "pageNum":19,            "objURL":"http://img2.niutuku.com/desk/1208/1921/ntk-1921-39435.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-9l99c9-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"192152540470",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1366355710,256457684",            "os" : "618177467,494026212",            "simid" : "4240587506,844258082",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2378214334,1693263705&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2378214334,1693263705&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2378214334,1693263705&fm=23&gp=0.jpg",            "pageNum":20,            "objURL":"http://img2.niutuku.com/desk/1207/1019/ntk130143.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F9a8nAzdH3F8n0mmn_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"66082519470",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2378214334,1693263705",            "os" : "3007842698,3413621981",            "simid" : "3347396200,81508776",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=356006851,3424989848&fm=11&gp=0.jpg","adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=356006851,3424989848&fm=11&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"",            "pageNum":21,            "objURL":"http://fc08.deviantart.com/fs15/f/2007/014/1/9/MAC_OS_LEOPARD_Wallpaper_by_carranzadesigns.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bijxtjfij_z&e3Bv54AzdH3FnmcAzdH3FdAzdH3F",            "fromURLHost":"www.hexieshe.com",            "currentIndex":"",            "width":1152,            "height":864,            "type":"jpg",            "filesize":"",            "bdSrcType":"11",            "di":"4780287310",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"60张最有苹果味道的<strong>壁纸<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "356006851,3424989848",            "os" : "3813082061,857666672",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=753188158,263808663&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=753188158,263808663&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=753188158,263808663&fm=23&gp=0.jpg",            "pageNum":22,            "objURL":"http://imgstore.cdn.sogou.com/app/a/100540002/467606.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fktzit_z&e3Bf5257_z&e3Bv54AzdH3F1jpwtsAzdH3Ftgu5AzdH3F9m0ma0AzdH3F9m0mamAzdH3F7fj6w11AzdH3F8c8l9acc",            "fromURLHost":"bizhi.sogou.com",            "currentIndex":"",            "width":1440,            "height":900,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"72934051410",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>壁纸<\/strong>下载 - 精品桌面 壁纸 分享平台",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "753188158,263808663",            "os" : "1051515912,1555394303",            "simid" : "3529988349,450573950",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2561687936,1571283319&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2561687936,1571283319&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2561687936,1571283319&fm=23&gp=0.jpg",            "pageNum":23,            "objURL":"http://img2.niutuku.com/desk/1207/1012/ntk123378.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3Fbl9bAzdH3F8nalda_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1200,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"52674578880",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2561687936,1571283319",            "os" : "3033079204,3436235399",            "simid" : "3494242231,433632816",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2282461491,3094683764&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2282461491,3094683764&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2282461491,3094683764&fm=23&gp=0.jpg",            "pageNum":24,            "objURL":"http://img2.niutuku.com/desk/1207/0849/ntk24838.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3Fc0n8AzdH3Fdlbn9_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1680,            "height":1050,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"133498822820",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"超酷精选系列桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2282461491,3094683764",            "os" : "3019721567,3501517777",            "simid" : "4107418015,606059249",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=4120949335,1024038921&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=4120949335,1024038921&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=4120949335,1024038921&fm=23&gp=0.jpg",            "pageNum":25,            "objURL":"http://pic23.nipic.com/20120920/1913767_143153301167_2.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bgtrtv_z&e3Bv54AzdH3Fzi7wgptAzdH3F8dd0aab_z&e3Bip4s",            "fromURLHost":"www.nipic.com",            "currentIndex":"",            "width":1024,            "height":640,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"165946288090",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"昵图网nipic.com",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4120949335,1024038921",            "os" : "76720452,12007110",            "simid" : "4200358108,433140723",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2596045840,4128783518&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2596045840,4128783518&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2596045840,4128783518&fm=23&gp=0.jpg",            "pageNum":26,            "objURL":"http://img2.niutuku.com/desk/1208/1304/ntk-1304-40465.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-9a0nc8-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1366,            "height":768,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"43206530070",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2596045840,4128783518",            "os" : "559946753,380935705",            "simid" : "3436174834,596123000",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=967474883,575596533&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=967474883,575596533&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=967474883,575596533&fm=23&gp=0.jpg",            "pageNum":27,            "objURL":"http://img2.niutuku.com/desk/1208/2114/ntk-2114-41696.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-cacamc-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1680,            "height":1050,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"1531278210",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "967474883,575596533",            "os" : "641115391,446607674",            "simid" : "4241385668,603789220",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2406727629,872122866&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2406727629,872122866&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2406727629,872122866&fm=23&gp=0.jpg",            "pageNum":28,            "objURL":"http://img2.niutuku.com/desk/1208/1459/ntk-1459-4782.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F15og-n9nmnl-a_z&e3Bip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1200,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"125171343110",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2406727629,872122866",            "os" : "312050517,702858267",            "simid" : "3417659692,526920591",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=4213512427,1678775737&fm=23&gp=0.jpg","adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=4213512427,1678775737&fm=21&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=4213512427,1678775737&fm=23&gp=0.jpg",            "pageNum":29,            "objURL":"http://img2.niutuku.com/desk/1207/1016/ntk129928.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgt7p7h7_z&e3Bv54AzdH3FktzitAzdH3F9adcAzdH3F8n09c8_z&e3Bfip4s",            "fromURLHost":"niutuku.com",            "currentIndex":"",            "width":1920,            "height":1080,            "type":"jpg",            "filesize":"",            "bdSrcType":"0",            "di":"133136966160",            "is":"0,0",            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"牛图库精选桌面<strong>壁纸<\/strong>图片",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4213512427,1678775737",            "os" : "3241798288,3561890906",            "simid" : "24545886,612543849",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{}]}
+);
+    app.setData('fcadData', {"fcData":[],"fcMidData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["洗车写真壁纸", "%CF%B4%B3%B5%D0%B4%D5%E6%B1%DA%D6%BD"],["美国黑色美女壁纸", "%C3%C0%B9%FA%BA%DA%C9%AB%C3%C0%C5%AE%B1%DA%D6%BD"],["tara美女壁纸图片高清", "tara%C3%C0%C5%AE%B1%DA%D6%BD%CD%BC%C6%AC%B8%DF%C7%E5"],["美女丝袜动态壁纸", "%C3%C0%C5%AE%CB%BF%CD%E0%B6%AF%CC%AC%B1%DA%D6%BD"],["李玹雨壁纸手机壁纸", "%C0%EE%ABt%D3%EA%B1%DA%D6%BD%CA%D6%BB%FA%B1%DA%D6%BD"],["锅子 壁纸", "%B9%F8%D7%D3%20%B1%DA%D6%BD"],["李平君 壁纸", "%C0%EE%C6%BD%BE%FD%20%B1%DA%D6%BD"],["贝壳粉背景墙效果图", "%B1%B4%BF%C7%B7%DB%B1%B3%BE%B0%C7%BD%D0%A7%B9%FB%CD%BC"],["宋仲基壁纸", "%CB%CE%D6%D9%BB%F9%B1%DA%D6%BD"],["韩系小清新风格壁纸", "%BA%AB%CF%B5%D0%A1%C7%E5%D0%C2%B7%E7%B8%F1%B1%DA%D6%BD"],["雪卡通壁纸", "%D1%A9%BF%A8%CD%A8%B1%DA%D6%BD"],["酷图卡通 壁纸", "%BF%E1%CD%BC%BF%A8%CD%A8%20%B1%DA%D6%BD"],["假币 壁纸", "%BC%D9%B1%D2%20%B1%DA%D6%BD"],["壁纸 风格", "%B1%DA%D6%BD%20%B7%E7%B8%F1"],["吃货卡通壁纸", "%B3%D4%BB%F5%BF%A8%CD%A8%B1%DA%D6%BD"],["粉色明星壁纸", "%B7%DB%C9%AB%C3%F7%D0%C7%B1%DA%D6%BD"],["三星s7壁纸下载", "%C8%FD%D0%C7s7%B1%DA%D6%BD%CF%C2%D4%D8"],["晴初 壁纸", "%C7%E7%B3%F5%20%B1%DA%D6%BD"],["壁纸 p站", "%B1%DA%D6%BD%20p%D5%BE"],["自然凤光 壁纸", "%D7%D4%C8%BB%B7%EF%B9%E2%20%B1%DA%D6%BD"],["动漫壁纸战斗", "%B6%AF%C2%FE%B1%DA%D6%BD%D5%BD%B6%B7"],["壁纸 风景 公路", "%B1%DA%D6%BD%20%B7%E7%BE%B0%20%B9%AB%C2%B7"],["800x480风景壁纸", "800x480%B7%E7%BE%B0%B1%DA%D6%BD"],["桌面 骚粉色", "%D7%C0%C3%E6%20%C9%A7%B7%DB%C9%AB"],["西藏美女 壁纸", "%CE%F7%B2%D8%C3%C0%C5%AE%20%B1%DA%D6%BD"],["图标美女 壁纸", "%CD%BC%B1%EA%C3%C0%C5%AE%20%B1%DA%D6%BD"],["职业西装美女 壁纸", "%D6%B0%D2%B5%CE%F7%D7%B0%C3%C0%C5%AE%20%B1%DA%D6%BD"],["原宿风背景", "%D4%AD%CB%DE%B7%E7%B1%B3%BE%B0"],["壁纸 风景 海滩", "%B1%DA%D6%BD%20%B7%E7%BE%B0%20%BA%A3%CC%B2"],["壁纸 不同风格 炫酷", "%B1%DA%D6%BD%20%B2%BB%CD%AC%B7%E7%B8%F1%20%EC%C5%BF%E1"]]);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+
+    
+        app.init();
+    app.run();
+});
+}();
+!function(){    window.tn = 'result';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+    /**
+     * flash初始化完成
+     */
+    function flashInitCallback(){
+        setTimeout(function(){
+            document.title = window.__originTitle;
+        }, 1000);
+
+        window.useFlashUp = true;
+    };
+    /**
+     * 选择好文件通知flash上线
+     */
+    function notiUpload(){
+        // speed
+        $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+        var logStr = "p=index&event_type=shitu.upload.click&pos=fileupload";
+        //nsclick.stat(logStr);
+        if (window.tn === 'index') {
+            p && p(null, 1811102, {'p':1811102,"pos":"fileupload","fm":"searchIndex",tn:"index"});
+        } else if (window.tn === 'result') {
+            p && p(null, 1111102, {"pos":"fileupload","fm":"searchresult"});
+        } else if (window.tn === 'detail') {
+            statistic && statistic.send('5.1011102',{pos:'drag',fm:'searchdetail'});
+        }
+        document.title = window.__originTitle;
+        stInstance.showLoading();
+    }
+    /**
+     * 整个上传是否成功
+     */
+    function returnState(boo,result){
+        document.title = window.__originTitle;
+        if(!boo){
+            stInstance.hideLoading();
+            alert("对不起，上传失败，请重新上传.");
+            return false;
+        }else if(boo){
+            if (window.tn === 'index') {
+                window.ss&&window.ss({type:'searchNum',p:'uploadSearch',form:'wantu',flash:'1'});
+            } else if (window.tn === 'result') {
+                window.ss&&window.ss({type:'searchNum',p:'uploadSearch',form:'searchresult',flash:'1'});
+            } else if (window.tn === 'detail') {
+                window.ss&&window.ss({type:'searchNum',p:'uploadSearch',form:'searchDetail',flash:'1'});
+            }
+            window.location.href=result;
+        };
+    }
+
+    /*用户关闭flash文件选择框*/
+    function filePickerEnd(){
+        document.title = window.__originTitle;
+    }
+    window.returnState = returnState;
+    window.flashInitCallback = flashInitCallback;
+    window.notiUpload = notiUpload;
+    window.filePickerEnd = filePickerEnd;
+require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+    window.$ = $;
+    $(document).ready(function() {
+        var st = new shitu();
+        st.init();
+        window.stInstance = st;
+        /*var flashCon = document.getElementById('flashcontent');
+        if(((parseInt($.flash.version.string, 10) || 0) < 10) || !flashCon){
+            flashCon.style.display = 'none';
+        }else{
+            try{
+                $('#flashcontent').flash({
+                    id: "STUUpload",
+                    swf: "http://img.baidu.com/img/image/stu/STUpload2.swf?v=0108",
+                    width: "103",
+                    height: "28",
+                    align: "top",
+                    wmode: "transparent",
+                    allowscriptaccess: "always",
+                    errorMessage: "载入FLASH出错",
+                    flashvars: {
+                        uploadurl:"/pictureup/uploadshitu?fr=flash&fm=index&pos=upload",
+                        logurl:"//imgstat.baidu.com/9.gif?rainbow=1&type=searchNum&p=uploadSearch&form=wantu&flash=1&t=",
+                        compress:"1"
+                    },
+                    hasVersion: "10.1.0"
+                });
+            }catch(e){
+                flashCon.style.display = 'none';
+            }
+
+        } */
+    });
+});
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord"],function( $, utils, HistoryRecord){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '/'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var jumpURL = '/n/pc_search?queryImageUrl='+encodeURIComponent(keyword)+'&fm=searchresult&pos=urlsearch&uptype=urlsearch';
+
+
+        if (tiaoma) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+           location.href = jumpURL;
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        form.lm.value = "-1";
+        form.pv.value = "";
+        form.action = "/search/index";
+
+        if(isflip) {
+            form.action = "/search/flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){
+		window.bid = -1;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+}();
+!function(){    }();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E5%A3%81%E7%BA%B8";
+	var tn = "result";
+	var host = "//imgstat.baidu.com/4.gif";
+	var hostSweb = "//image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=10601256431817150854&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result.page&fr=ala" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=wallpaper&fr=ala" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = 'ala';
+    var chenjin = '';
+    var urlword = '%B1%DA%D6%BD';
+
+    if (hostname !== 'image.baidu.com') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '/', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '/', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: '3b8ff9bc02d448804adafed2f82d1ff65e1ccf06',
+                cs: '',
+                word: '壁纸'
+            });
+        });
+    }();</script>   </html> <!--20709420471031746058010715-->
+<script> var _trace_page_logid = 2070942047; </script><!--20709420470698169866010715-->
+<script> var _trace_page_logid = 2070942047; </script>
